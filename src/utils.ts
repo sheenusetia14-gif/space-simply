@@ -5,7 +5,10 @@ export function formatDate(date: Date) {
 }
 
 export function sortPosts(posts: CollectionEntry<'blog'>[]) {
-  return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  // Newest first; posts published on the same day are ordered by title.
+  return posts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.data.title.localeCompare(b.data.title),
+  );
 }
 
 /** Rough reading time at ~200 words per minute (never less than 1). */

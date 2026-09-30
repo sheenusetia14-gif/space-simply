@@ -5,7 +5,7 @@
 // 3. Delete the <script> at the bottom so the form submits for real.
 const action = '#';
 ---
-<section class="newsletter" aria-labelledby="newsletter-title">
+<section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
   <p class="eyebrow">Free newsletter</p>
   <h2 id="newsletter-title">One mind-blowing space fact every Friday</h2>
   <p class="muted">A 1-minute read to end your week. No jargon, no spam — unsubscribe anytime.</p>
@@ -18,7 +18,7 @@ const action = '#';
 </section>
 
 <style>
-  .newsletter { background: linear-gradient(160deg, var(--bg-raised-2), var(--bg-raised)); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem 1.5rem; }
+  .newsletter { scroll-margin-top: 1.5rem; background: linear-gradient(160deg, var(--bg-raised-2), var(--bg-raised)); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem 1.5rem; }
   h2 { margin: 0.35rem 0 0.4rem; }
   .muted { margin: 0 0 1.25rem; }
   .newsletter-form { display: flex; flex-direction: column; gap: 0.75rem; }

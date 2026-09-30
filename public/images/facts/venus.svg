@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="t">
+  <title id="t">Illustration of Venus with an arrow showing its slow spin</title>
+  <defs>
+    <radialGradient id="venus" cx="38%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#fff1d6"/>
+      <stop offset="0.5" stop-color="#f2c77e"/>
+      <stop offset="1" stop-color="#b8843d"/>
+    </radialGradient>
+    <clipPath id="c"><circle cx="200" cy="200" r="120"/></clipPath>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#ffb454"/>
+    </marker>
+  </defs>
+  <g fill="#f4f6fb"><circle cx="40" cy="50" r="1.6"/><circle cx="360" cy="80" r="1.3"/><circle cx="330" cy="350" r="1.6"/><circle cx="60" cy="330" r="1.2"/><circle cx="210" cy="30" r="1"/></g>
+  <circle cx="200" cy="200" r="120" fill="url(#venus)"/>
+  <g clip-path="url(#c)" fill="none" stroke="#d9a35a" stroke-width="10" opacity="0.55" stroke-linecap="round">
+    <path d="M70 150 C130 130 200 170 330 140"/><path d="M70 210 C150 190 230 230 330 205"/><path d="M80 265 C160 250 230 285 320 262"/>
+  </g>
+  <path d="M95 330 A160 60 0 0 0 305 330" fill="none" stroke="#ffb454" stroke-width="6" stroke-linecap="round" marker-start="url(#arrow)"/>
+</svg>
