@@ -1,0 +1,49 @@
+---
+// Design-only newsletter form. To connect a real email tool later:
+// 1. Set `action` to your provider's form URL (Mailchimp, ConvertKit/Kit, Buttondown, Brevo...).
+// 2. Rename the input's `name` if your provider expects something other than "email".
+// 3. Delete the <script> at the bottom so the form submits for real.
+const action = '#';
+---
+<section class="newsletter" aria-labelledby="newsletter-title">
+  <p class="eyebrow">Free newsletter</p>
+  <h2 id="newsletter-title">One mind-blowing space fact every Friday</h2>
+  <p class="muted">A 1-minute read to end your week. No jargon, no spam — unsubscribe anytime.</p>
+  <form action={action} method="post" class="newsletter-form" data-newsletter>
+    <label for="newsletter-email" class="visually-hidden">Your email address</label>
+    <input id="newsletter-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+    <button type="submit" class="btn">Send me facts</button>
+  </form>
+  <p class="form-status" role="status" aria-live="polite" hidden></p>
+</section>
+
+<style>
+  .newsletter { background: linear-gradient(160deg, var(--bg-raised-2), var(--bg-raised)); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem 1.5rem; }
+  h2 { margin: 0.35rem 0 0.4rem; }
+  .muted { margin: 0 0 1.25rem; }
+  .newsletter-form { display: flex; flex-direction: column; gap: 0.75rem; }
+  input { font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 0.8rem 1.2rem; min-width: 0; flex: 1; }
+  input::placeholder { color: #7f8bab; }
+  input:focus { border-color: var(--accent); outline: none; }
+  .form-status { margin: 0.9rem 0 0; color: var(--accent); font-weight: 600; }
+  @media (min-width: 560px) {
+    .newsletter { padding: 2.25rem 2.25rem; }
+    .newsletter-form { flex-direction: row; }
+  }
+</style>
+
+<script>
+  // Placeholder behaviour until a real email tool is connected.
+  document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      if (form.getAttribute('action') !== '#') return;
+      event.preventDefault();
+      const status = form.parentElement?.querySelector<HTMLElement>('.form-status');
+      if (status) {
+        status.hidden = false;
+        status.textContent = 'Thanks! Sign-ups open very soon — check back shortly.';
+      }
+      form.reset();
+    });
+  });
+</script>

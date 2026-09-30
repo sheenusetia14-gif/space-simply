@@ -1,0 +1,17 @@
+{
+  "name": "space-simply",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Space, Simply — mind-blowing space, explained in 3 minutes.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.5"
+  }
+}

@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { SITE_NAME, AUTHOR_NAME } from '../consts';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: `About ${SITE_NAME}`,
+  url: new URL('/about', Astro.site).href,
+  mainEntity: {
+    '@type': 'Person',
+    name: AUTHOR_NAME,
+    jobTitle: 'Growth marketer',
+    description: 'A growth marketer who loves space and explains it simply.',
+  },
+};
+---
+<BaseLayout
+  title="About"
+  description="Space, Simply is made by Sheenam Setia, a growth marketer who loves space, to explain the universe in plain English for curious people in India."
+  jsonLd={jsonLd}
+>
+  <section class="container about">
+    <p class="eyebrow">About</p>
+    <h1>Made by {AUTHOR_NAME}, a growth marketer who loves space.</h1>
+    <p>
+      I'm not an astronaut or a physicist. I'm someone who looks up at the night sky and has a
+      hundred questions — and I think you shouldn't need a science degree to get good answers.
+    </p>
+    <p>
+      {SITE_NAME} explains one mind-blowing space idea at a time, in the language we actually speak.
+      Every post starts with a quick answer, then explains it properly, and takes about three
+      minutes to read.
+    </p>
+    <h2>How posts are made</h2>
+    <ul>
+      <li>Every fact is checked against trusted sources like NASA, ESA and ISRO, listed at the end of each post.</li>
+      <li>Posts are updated when new discoveries change the story — the "last updated" date tells you when.</li>
+      <li>No jargon without an explanation. If a word needs a dictionary, it gets explained.</li>
+    </ul>
+    <div class="about-newsletter">
+      <NewsletterForm />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about { padding-top: 3rem; }
+  .about h1 { margin-top: 0.5rem; }
+  .about p, .about li { font-size: 1.1rem; }
+  .about ul { padding-left: 1.3rem; }
+  .about-newsletter { margin-top: 3rem; }
+</style>

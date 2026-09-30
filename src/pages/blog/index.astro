@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { SITE_NAME } from '../../consts';
+import { sortPosts } from '../../utils';
+
+const posts = sortPosts(await getCollection('blog'));
+const blogURL = new URL('/blog', Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: `${SITE_NAME} — All explainers`,
+  url: blogURL,
+  inLanguage: 'en-IN',
+  blogPost: posts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    url: new URL(`/blog/${post.id}`, Astro.site).href,
+    datePublished: post.data.pubDate.toISOString(),
+  })),
+};
+---
+<BaseLayout
+  title="All space explainers"
+  description="Every Space, Simply post in one place: black holes, stars, planets and the universe, explained in plain English in about 3 minutes each."
+  jsonLd={jsonLd}
+>
+  <section class="container-wide">
+    <header class="page-head">
+      <p class="eyebrow">The blog</p>
+      <h1>All space explainers</h1>
+      <p class="muted">Big space ideas, one at a time. Newest first.</p>
+    </header>
+    <div class="grid">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { padding: 3rem 0 1.5rem; max-width: 40rem; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 960px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+</style>
