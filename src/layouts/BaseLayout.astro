@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE_NAME, SITE_TAGLINE, SITE_LOCALE } from '../consts';
+import { SITE_NAME, SITE_TAGLINE, SITE_LOCALE, GOOGLE_SITE_VERIFICATION } from '../consts';
 
 interface Props {
   title: string;
@@ -56,6 +56,7 @@ const current = path === '/' ? '/' : '/' + path.split('/')[1];
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
+    {GOOGLE_SITE_VERIFICATION && <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content={type} />
