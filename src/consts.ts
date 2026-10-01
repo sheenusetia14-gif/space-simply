@@ -8,4 +8,4 @@ export const SITE_LOCALE = 'en_IN';
 // Google Search Console verification code: only the value inside content="..."
 // from the tag Google gives you, e.g. <meta name="google-site-verification" content="THIS_PART" />.
 // Leave empty to skip the tag.
-export const GOOGLE_SITE_VERIFICATION = '';
+export const GOOGLE_SITE_VERIFICATION = 'aBLeFvl6IrrbJgDAN4Q16zPp73k7XYiH8wttBZYixPw';
