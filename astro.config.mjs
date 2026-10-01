@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // The live address of the site.
 // It is used for canonical URLs, Open Graph tags, the sitemap and robots.txt.
-const SITE_URL = 'https://space-simply.vercel.app';
+const SITE_URL = 'https://www.simplyspace.space';
 
 export default defineConfig({
   site: SITE_URL,

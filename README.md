@@ -118,7 +118,7 @@ If there's a mistake in a post (like a missing field or a badly written date), t
 
 ## Before going live: things to set once
 
-- **Your domain:** the site address is set in `astro.config.mjs` as `SITE_URL` (currently `https://space-simply.vercel.app`). If you move to a custom domain, change it there. It's used for Google, the sitemap, robots.txt and share previews.
+- **Your domain:** the site address is set in `astro.config.mjs` as `SITE_URL` (currently `https://www.simplyspace.space`). If the domain ever changes, change it there. It's used for Google, the sitemap, robots.txt and share previews.
 - **Newsletter:** the signup box is design-only for now. To connect Mailchimp, Kit (ConvertKit), Buttondown, Brevo or similar, follow the three steps at the top of `src/components/NewsletterForm.astro`.
 - **Hosting:** the site is hosted on Vercel. It's plain static files in the `dist/` folder after `npm run build`. `vercel.json` keeps addresses without a trailing slash (e.g. `/blog`, not `/blog/`).
 
